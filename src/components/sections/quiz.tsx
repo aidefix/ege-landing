@@ -281,12 +281,11 @@ export function Quiz() {
   return (
     <Sheet id={SECTIONS.quiz.id} tilt="right" tape="tl">
       <Sticker tone="pink" className="-top-[34px] -right-[14px] rotate-[11deg] max-sm:-top-8 max-sm:-right-2">
-        {QUIZ_STICKER.map((line, i) => (
-          <span key={line}>
-            {line}
-            {i < QUIZ_STICKER.length - 1 && <br />}
-          </span>
-        ))}
+        <span className="flex flex-col items-center leading-4 tracking-tight">
+          {QUIZ_STICKER.map((line) => (
+            <span key={line}>{line}</span>
+          ))}
+        </span>
       </Sticker>
 
       <SectionTag>{SECTIONS.quiz.tag}</SectionTag>

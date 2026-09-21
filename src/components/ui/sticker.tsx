@@ -25,7 +25,7 @@ export function Sticker({
   return (
     <span
       className={cn(
-        "absolute z-5 grid size-[104px] place-items-center rounded-full p-2.5",
+        "absolute z-5 grid size-[135px] place-items-center rounded-full p-2.5",
         "text-center font-display text-sm leading-[1.05] font-extrabold",
         "max-sm:size-[92px] max-sm:p-1.5 max-sm:text-[10.5px]",
         "shadow-sticker",
