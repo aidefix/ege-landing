@@ -1,0 +1,673 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Русский ЕГЭ · тетрадь</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@600;700;800;900&family=Caveat:wght@500;600;700&family=Golos+Text:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#e8e3d3; --card:#fbf9f2; --ink:#1a1a22;
+  --pink:#ff4d97; --aqua:#1fc8dd; --lilac:#9b6cff; --acid:#d8f23a; --sun:#ffc531;
+  --pen:#e02b22;      /* красная ручка */
+  --gel:#2b4dff;      /* синяя гелевая */
+  --m1:#ffc531; --m2:#2b4dff; --m3:#1fc8dd; --m4:#9b6cff; --m5:#ff4d97;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{animation:none!important;transition:none!important}}
+body{
+  margin:0;padding:0 0 70px;color:var(--ink);
+  font-family:"Golos Text",system-ui,sans-serif;font-size:16px;line-height:1.6;
+  background:var(--paper);
+  background-image:
+    radial-gradient(700px 500px at 10% 2%,rgba(255,77,151,.16),transparent 60%),
+    radial-gradient(600px 500px at 92% 20%,rgba(31,200,221,.18),transparent 62%),
+    radial-gradient(700px 600px at 50% 95%,rgba(155,108,255,.14),transparent 64%);
+}
+body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:0;opacity:.5;
+  background-image:linear-gradient(rgba(26,26,34,.06) 1px,transparent 1px),
+                   linear-gradient(90deg,rgba(26,26,34,.06) 1px,transparent 1px);
+  background-size:26px 26px}
+body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:9997;opacity:.05;
+  background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='140' height='140'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='2'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>")}
+
+.wrap{max-width:1020px;margin:0 auto;padding:0 18px;position:relative;z-index:1}
+.un{font-family:"Unbounded",sans-serif}
+.hw{font-family:"Caveat",cursive;font-weight:600}
+
+/* ——— ХРОМ ——— */
+.chrome{
+  font-family:"Unbounded";font-weight:900;
+  background:linear-gradient(180deg,#fff 0%,#e3edf8 24%,#93a9c2 46%,#5d7189 51%,#a9bed2 58%,#f4f9ff 78%,#cbd9e8 100%);
+  -webkit-background-clip:text;background-clip:text;color:transparent;
+  -webkit-text-stroke:1.6px #1c2a3a;
+  filter:drop-shadow(2px 3px 0 rgba(28,42,58,.5));
+  letter-spacing:-.02em;
+}
+
+/* ——— КАРТОЧКА-ЛИСТ ——— */
+.sheet{position:relative;background:var(--card);border-radius:3px;margin:0 0 46px;
+  padding:34px 32px 36px;box-shadow:5px 7px 0 rgba(26,26,34,.16),0 0 0 1px rgba(26,26,34,.1)}
+.sheet.r1{transform:rotate(-.5deg)}
+.sheet.r2{transform:rotate(.45deg)}
+.sheet.ruled{background-image:repeating-linear-gradient(transparent 0 33px,rgba(43,77,255,.14) 33px 34px)}
+/* скотч */
+.tape{position:absolute;width:118px;height:30px;background:rgba(255,255,255,.5);
+  border-left:1px dashed rgba(26,26,34,.14);border-right:1px dashed rgba(26,26,34,.14);
+  box-shadow:0 1px 3px rgba(26,26,34,.18);z-index:3;
+  background-image:repeating-linear-gradient(90deg,rgba(255,255,255,.28) 0 3px,rgba(210,215,205,.22) 3px 6px)}
+.tape.tl{top:-13px;left:26px;transform:rotate(-5deg)}
+.tape.tr{top:-13px;right:26px;transform:rotate(4deg)}
+
+/* стикеры */
+.sticker{position:absolute;z-index:5;font-family:"Unbounded";font-weight:800;color:#fff;
+  display:grid;place-items:center;text-align:center;line-height:1.05;
+  box-shadow:3px 4px 0 rgba(26,26,34,.22)}
+.sticker.circ{width:104px;height:104px;border-radius:50%;font-size:14px;padding:10px}
+.star{position:absolute;color:var(--sun);font-size:26px;z-index:4;text-shadow:2px 2px 0 rgba(26,26,34,.2)}
+
+/* ——— HERO ——— */
+.hero{padding:46px 0 4px}
+.hero .kick{font-family:"Caveat";font-weight:700;font-size:23px;color:var(--pen);
+  transform:rotate(-1.6deg);display:inline-block;margin-bottom:12px}
+.hero h1{margin:0;font-size:clamp(32px,7vw,74px);line-height:1.04}
+.hero h1 .l2{display:block;font-family:"Unbounded";font-weight:800;color:var(--ink);
+  -webkit-text-stroke:0;background:none;filter:none}
+.hero h1 em{font-style:normal;position:relative;white-space:nowrap}
+.hero h1 em::after{content:"";position:absolute;left:-4px;right:-4px;top:12%;bottom:14%;
+  border:3.5px solid var(--pen);border-radius:52% 48% 50% 50%/60% 55% 45% 40%;
+  transform:rotate(-1.4deg);pointer-events:none}
+.hero .sub{margin:26px 0 0;font-size:17px;max-width:44ch}
+.hero .sub mark{background:linear-gradient(transparent 55%,var(--acid) 55%);padding:0 2px}
+.btns{display:flex;flex-wrap:wrap;gap:12px;margin-top:28px}
+.btn{font-family:"Unbounded";font-weight:700;font-size:14.5px;padding:15px 24px;border:2.5px solid var(--ink);
+  border-radius:40px;background:#fff;color:var(--ink);cursor:pointer;text-decoration:none;display:inline-block;
+  box-shadow:3px 4px 0 var(--ink);transition:transform .12s,box-shadow .12s}
+.btn:hover{transform:translate(-1px,-1px);box-shadow:4px 5px 0 var(--ink)}
+.btn:active{transform:translate(3px,4px);box-shadow:0 0 0 var(--ink)}
+.btn.p{background:var(--pink);color:#fff}
+.btn.a{background:var(--aqua)}
+.btn.y{background:var(--sun)}
+
+.nums{display:flex;flex-wrap:wrap;gap:26px 34px;margin-top:38px}
+.nums div{text-align:center}
+.nums b{display:block;font-family:"Unbounded";font-weight:900;font-size:40px;line-height:1;position:relative}
+.nums b::after{content:"";position:absolute;left:-13px;right:-13px;top:-9px;bottom:-9px;
+  border:3px solid var(--gel);border-radius:50%/44%;transform:rotate(-4deg)}
+.nums span{display:block;font-family:"Caveat";font-weight:600;font-size:17px;margin-top:14px;color:#4a4a58}
+
+/* ——— ЗАГОЛОВКИ СЕКЦИЙ ——— */
+.h2{font-family:"Unbounded";font-weight:800;font-size:clamp(24px,4vw,38px);margin:0 0 8px;line-height:1.1}
+.lead{margin:0 0 26px;max-width:56ch;color:#3c3c48}
+.tag{display:inline-block;font-family:"Caveat";font-weight:700;font-size:20px;color:var(--pen);
+  transform:rotate(-1.4deg);margin-bottom:6px}
+
+/* ——— ПОЛОСЫ-МАРКЕРЫ ——— */
+.bar{margin-bottom:30px}
+.bar .cap{display:flex;justify-content:space-between;font-family:"Caveat";font-weight:700;
+  font-size:19px;margin-bottom:5px}
+.bar .cap i{font-style:normal;color:#6a6a78;font-size:16px}
+.track{display:flex;height:46px;gap:5px}
+.seg{display:grid;place-items:center;font-family:"Unbounded";font-weight:800;font-size:17px;
+  color:var(--ink);border:2.5px solid var(--ink);border-radius:6px;position:relative;
+  box-shadow:2px 3px 0 rgba(26,26,34,.2)}
+.seg small{position:absolute;top:calc(100% + 6px);left:0;font-family:"Caveat";font-weight:600;
+  font-size:15px;color:#5a5a68;white-space:nowrap}
+.keys{display:flex;flex-wrap:wrap;gap:8px 18px;margin-top:26px;font-size:13.5px}
+.keys span{display:inline-flex;align-items:center;gap:7px}
+.keys i{width:15px;height:15px;border:2px solid var(--ink);border-radius:4px}
+.note{margin-top:40px;background:var(--acid);border:2.5px solid var(--ink);border-radius:6px;
+  padding:18px 20px;box-shadow:3px 4px 0 var(--ink);transform:rotate(-.4deg);font-size:15.5px}
+.note b{font-family:"Unbounded";font-weight:800}
+
+/* ——— ТРЕНАЖЁР ——— */
+.pips{display:flex;gap:7px;margin-bottom:20px}
+.pip{flex:1;height:9px;border:2px solid var(--ink);border-radius:20px;background:#fff}
+.qmod{display:inline-block;font-family:"Unbounded";font-weight:800;font-size:12.5px;padding:5px 13px;
+  border:2.5px solid var(--ink);border-radius:30px;transform:rotate(-1.2deg);box-shadow:2px 3px 0 var(--ink)}
+.qnum{font-family:"Caveat";font-weight:700;font-size:19px;color:#6a6a78;margin-left:12px}
+.q h3{font-family:"Unbounded";font-weight:700;font-size:clamp(18px,2.6vw,25px);margin:16px 0 20px;line-height:1.25}
+.opt{display:flex;align-items:flex-start;gap:13px;width:100%;text-align:left;background:#fff;
+  font:inherit;font-size:16px;padding:14px 16px;margin-bottom:10px;cursor:pointer;
+  border:2.5px solid var(--ink);border-radius:8px;box-shadow:2px 3px 0 rgba(26,26,34,.22)}
+.opt:hover:not(:disabled){background:#fffbe8;transform:translate(-1px,-1px)}
+.opt:disabled{cursor:default}
+.opt .bxx{flex:none;width:21px;height:21px;border:2.5px solid var(--ink);border-radius:5px;margin-top:1px;
+  display:grid;place-items:center;font-family:"Caveat";font-weight:700;font-size:19px;line-height:1}
+.opt.ok{background:#eaffd9}
+.opt.ok .bxx{color:#1a8f2e}
+.opt.bad{background:#ffe9ef}
+.opt.bad .bxx{color:var(--pen)}
+.opt.bad .t{position:relative}
+.opt.bad .t::after{content:"";position:absolute;left:-2px;right:-2px;top:52%;height:2.5px;
+  background:var(--pen);transform:rotate(-.8deg)}
+.verd{margin-top:18px;border:2.5px solid var(--ink);border-radius:8px;background:#fff;
+  box-shadow:3px 4px 0 var(--ink);overflow:hidden}
+.verd .vt{font-family:"Unbounded";font-weight:800;font-size:14px;padding:9px 16px;
+  border-bottom:2.5px solid var(--ink);color:#fff}
+.verd .vb{padding:16px 18px;font-size:15px}
+.verd .vb .pen{font-family:"Caveat";font-weight:700;font-size:21px;color:var(--pen);display:block;margin-bottom:5px}
+.qnav{margin-top:18px;display:flex;gap:10px;flex-wrap:wrap}
+.rrow{display:flex;align-items:center;gap:12px;margin-bottom:10px;font-size:14.5px}
+.rrow .nm{width:145px;flex:none;font-weight:600}
+.rrow .tr{flex:1;height:18px;border:2.5px solid var(--ink);border-radius:20px;background:#fff;padding:2px}
+.rrow .fl{height:100%;border-radius:20px}
+.rrow .vl{width:38px;text-align:right;font-family:"Unbounded";font-weight:800;flex:none}
+
+/* ——— ПРОГРАММА: закладки ——— */
+.mod{border:2.5px solid var(--ink);border-radius:8px;background:#fff;margin-bottom:12px;
+  box-shadow:3px 4px 0 rgba(26,26,34,.2);overflow:hidden}
+.mod summary{list-style:none;cursor:pointer;padding:16px 18px;display:flex;align-items:center;gap:14px}
+.mod summary::-webkit-details-marker{display:none}
+.mod .chip{flex:none;font-family:"Unbounded";font-weight:800;font-size:13px;padding:5px 12px;
+  border:2.5px solid var(--ink);border-radius:30px}
+.mod .fn{flex:1;font-family:"Unbounded";font-weight:700;font-size:17px}
+.mod .fc{font-family:"Caveat";font-weight:700;font-size:19px;color:#5a5a68;flex:none}
+.mod .pl{flex:none;font-family:"Unbounded";font-weight:800;font-size:19px;width:26px;text-align:center}
+.mod[open] .pl{color:var(--pen)}
+.mod .kids{padding:0 18px 18px 18px;display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:2px 26px}
+.mod .kids div{display:flex;justify-content:space-between;gap:12px;font-size:14.5px;padding:7px 0;
+  border-bottom:1px dashed rgba(26,26,34,.18)}
+.mod .kids div span{font-family:"Caveat";font-weight:700;font-size:17px;color:#6a6a78;white-space:nowrap}
+
+/* ——— СОЧИНЕНИЕ ——— */
+.doc{display:grid;grid-template-columns:1fr 250px;gap:22px}
+.leaf{position:relative;background:#fff;border:2.5px solid var(--ink);border-radius:6px;
+  padding:26px 26px 26px 54px;box-shadow:4px 5px 0 rgba(26,26,34,.2);
+  background-image:repeating-linear-gradient(transparent 0 33px,rgba(43,77,255,.16) 33px 34px);
+  background-position:0 14px;font-size:17px;line-height:34px;font-family:"Golos Text"}
+.leaf::before{content:"";position:absolute;left:34px;top:0;bottom:0;width:2px;background:rgba(224,43,34,.35)}
+.leaf .err{cursor:pointer;position:relative;
+  background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='7' height='5'><path d='M0 3.5 Q1.75 0.5 3.5 3.5 T7 3.5' fill='none' stroke='%23e02b22' stroke-width='1.3'/></svg>");
+  background-repeat:repeat-x;background-position:0 96%;padding-bottom:3px}
+.leaf .err.on{background-color:#fff0a8}
+.leaf .fix{font-family:"Caveat";font-weight:700;color:var(--pen);font-size:20px}
+.marg{display:flex;flex-direction:column;gap:12px}
+.marg .mtitle{font-family:"Caveat";font-weight:700;font-size:22px;color:var(--pen);transform:rotate(-1.5deg)}
+.mcard{border:2.5px solid var(--ink);border-radius:8px;background:#fff;padding:14px 15px;
+  box-shadow:3px 4px 0 rgba(26,26,34,.18)}
+.mcard .was{font-family:"Caveat";font-weight:700;font-size:21px;color:#8a8a96;text-decoration:line-through;
+  text-decoration-color:var(--pen);text-decoration-thickness:2px}
+.mcard .now{font-family:"Caveat";font-weight:700;font-size:23px;color:#1a8f2e;display:block;margin:2px 0 8px}
+.mcard .rule{font-family:"Unbounded";font-weight:700;font-size:12px;margin-bottom:5px}
+.mcard .why{font-size:13.5px;color:#3c3c48;line-height:1.5}
+.dots{display:flex;gap:7px;flex-wrap:wrap;margin-top:4px}
+.dots b{width:30px;height:30px;display:grid;place-items:center;cursor:pointer;border-radius:50%;
+  border:2.5px solid var(--ink);background:#fff;font-family:"Unbounded";font-weight:800;font-size:13px}
+.dots b.on{background:var(--pen);color:#fff}
+
+/* ——— РЕЗУЛЬТАТЫ ——— */
+.grid-paper{background:#fff;border:2.5px solid var(--ink);border-radius:6px;padding:12px;
+  box-shadow:4px 5px 0 rgba(26,26,34,.2);
+  background-image:linear-gradient(rgba(43,77,255,.13) 1px,transparent 1px),
+                   linear-gradient(90deg,rgba(43,77,255,.13) 1px,transparent 1px);
+  background-size:22px 22px}
+.slope{width:100%;height:auto;display:block}
+.slope text{font-family:"Caveat",cursive;font-size:15px;font-weight:700}
+
+/* ——— ТАРИФЫ ——— */
+.tars{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.tar{position:relative;background:#fff;border:2.5px solid var(--ink);border-radius:10px;
+  padding:0 0 18px;box-shadow:4px 5px 0 rgba(26,26,34,.2);display:flex;flex-direction:column;cursor:pointer}
+.tar.sel{box-shadow:4px 5px 0 var(--pink),0 0 0 3px var(--pink)}
+.tar .th{font-family:"Unbounded";font-weight:800;font-size:18px;padding:13px 16px;
+  border-bottom:2.5px solid var(--ink);border-radius:7px 7px 0 0}
+.tar .tp{font-family:"Unbounded";font-weight:900;font-size:29px;padding:16px 16px 2px;line-height:1}
+.tar .tu{font-family:"Caveat";font-weight:600;font-size:17px;color:#5a5a68;padding:0 16px 14px}
+.tar ul{list-style:none;margin:0;padding:0 16px;font-size:14px;flex:1}
+.tar li{padding:8px 0 8px 26px;position:relative;border-top:1px dashed rgba(26,26,34,.18)}
+.tar li:first-child{border-top:none}
+.tar li::before{content:"✓";position:absolute;left:1px;font-family:"Caveat";font-weight:700;
+  font-size:21px;color:#1a8f2e;line-height:1.1}
+.tar li.no{color:#9a9aa6}
+.tar li.no::before{content:"✗";color:var(--pen)}
+.tar .best{position:absolute;top:-15px;right:-10px;font-family:"Unbounded";font-weight:800;font-size:11px;
+  background:var(--sun);border:2.5px solid var(--ink);border-radius:30px;padding:5px 12px;
+  transform:rotate(7deg);box-shadow:2px 3px 0 var(--ink)}
+.extras{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:16px}
+.ex{border:2.5px solid var(--ink);border-radius:10px;padding:16px 18px;display:flex;
+  justify-content:space-between;align-items:center;gap:14px;box-shadow:3px 4px 0 rgba(26,26,34,.2)}
+.ex h4{font-family:"Unbounded";font-weight:800;font-size:16px;margin:0}
+.ex p{margin:3px 0 0;font-size:13px;color:#3c3c48}
+.ex b{font-family:"Unbounded";font-weight:900;font-size:22px;white-space:nowrap}
+.fine{margin-top:20px;font-size:13px;color:#4a4a58;line-height:1.7;border-top:2px dashed rgba(26,26,34,.2);padding-top:14px}
+
+.final{text-align:center;padding:10px 0 40px}
+.final h2{font-family:"Unbounded";font-weight:900;font-size:clamp(26px,5.4vw,52px);margin:0 auto;max-width:16ch;line-height:1.08}
+.final p{max-width:44ch;margin:18px auto 26px;color:#3c3c48}
+
+/* ——— КОМУ ПОДХОДИТ ——— */
+.who{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.wcard{border:2.5px solid var(--ink);border-radius:10px;background:#fff;overflow:hidden;
+  box-shadow:4px 5px 0 rgba(26,26,34,.2)}
+.wcard .wh{font-family:"Unbounded";font-weight:800;font-size:15px;padding:12px 15px;
+  border-bottom:2.5px solid var(--ink)}
+.wcard .wb{padding:14px 16px 16px;font-size:14.5px}
+.wcard .lvl{font-family:"Caveat";font-weight:700;font-size:24px;display:block;margin-bottom:4px}
+.nope{margin-top:18px;border:2.5px dashed var(--pen);border-radius:10px;padding:16px 20px;
+  background:#fff6f5;font-size:15.5px;transform:rotate(-.35deg)}
+.nope b{font-family:"Unbounded";font-weight:800;color:var(--pen)}
+
+/* ——— КАК УСТРОЕНЫ ЗАНЯТИЯ ——— */
+.steps{display:grid;grid-template-columns:1fr 1fr;gap:6px 30px}
+.step{display:flex;gap:14px;align-items:flex-start;padding:12px 0;
+  border-bottom:1px dashed rgba(26,26,34,.2)}
+.step .no{flex:none;width:36px;height:36px;border:2.5px solid var(--gel);border-radius:50%;
+  display:grid;place-items:center;font-family:"Caveat";font-weight:700;font-size:22px;color:var(--gel)}
+.step .sc b{font-family:"Unbounded";font-weight:700;font-size:14.5px;display:block;margin-bottom:2px}
+.step .sc span{font-size:14px;color:#3c3c48}
+.load{margin-top:22px;background:var(--sun);border:2.5px solid var(--ink);border-radius:10px;
+  padding:16px 20px;box-shadow:3px 4px 0 var(--ink);transform:rotate(.35deg);font-size:15.5px}
+
+/* ——— О ПРЕПОДАВАТЕЛЕ ——— */
+.about{display:grid;grid-template-columns:270px 1fr;gap:30px;align-items:start}
+.polaroid{position:relative;background:#fff;border:2.5px solid var(--ink);border-radius:4px;
+  padding:12px 12px 46px;box-shadow:5px 6px 0 rgba(26,26,34,.2);transform:rotate(-2deg)}
+.polaroid .ph{aspect-ratio:4/5;border:2px dashed rgba(26,26,34,.35);border-radius:3px;
+  display:grid;place-items:center;text-align:center;padding:16px;background:#f6f4ec;
+  font-family:"Caveat";font-weight:700;font-size:20px;color:#8a8a96;line-height:1.25}
+.polaroid .sig{position:absolute;left:0;right:0;bottom:12px;text-align:center;
+  font-family:"Caveat";font-weight:700;font-size:22px;color:var(--gel)}
+.about .quote{font-family:"Caveat";font-weight:700;font-size:26px;line-height:1.3;color:var(--pen);
+  margin:0 0 18px;transform:rotate(-.5deg)}
+.creds{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}
+.creds span{font-family:"Unbounded";font-weight:700;font-size:12px;padding:6px 13px;
+  border:2.5px solid var(--ink);border-radius:30px;background:#fff;box-shadow:2px 3px 0 rgba(26,26,34,.2)}
+
+/* ——— ВОПРОСЫ ——— */
+.faq{border-bottom:2px dashed rgba(26,26,34,.22)}
+.faq:last-child{border-bottom:none}
+.faq summary{list-style:none;cursor:pointer;padding:16px 4px;display:flex;align-items:flex-start;gap:14px;
+  font-family:"Unbounded";font-weight:700;font-size:16px;line-height:1.35}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary:hover{color:var(--pen)}
+.faq .mrk{flex:none;font-family:"Caveat";font-weight:700;font-size:28px;color:var(--pen);
+  line-height:.9;width:22px}
+.faq[open] .mrk::after{content:"−"}
+.faq .mrk::after{content:"+"}
+.faq .ans{padding:0 4px 18px 40px;font-size:15px;color:#3c3c48}
+
+/* ——— ФОРМА ——— */
+.form{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.fld{display:block}
+.fld span{display:block;font-family:"Caveat";font-weight:700;font-size:19px;margin-bottom:3px}
+.fld input,.fld select,.fld textarea{width:100%;font:inherit;font-size:15px;padding:12px 14px;
+  border:2.5px solid var(--ink);border-radius:8px;background:#fff;box-shadow:2px 3px 0 rgba(26,26,34,.18)}
+.fld input:focus,.fld select:focus,.fld textarea:focus{outline:none;box-shadow:2px 3px 0 var(--pink);border-color:var(--pink)}
+.fld.wide{grid-column:1/-1}
+.fld textarea{resize:vertical;min-height:84px}
+.consent{grid-column:1/-1;display:flex;gap:12px;align-items:flex-start;font-size:13.5px;
+  color:#3c3c48;line-height:1.5;margin-top:4px}
+.consent input{appearance:none;flex:none;width:24px;height:24px;border:2.5px solid var(--ink);
+  border-radius:6px;background:#fff;cursor:pointer;display:grid;place-items:center;margin-top:1px}
+.consent input:checked::after{content:"✓";font-family:"Caveat";font-weight:700;font-size:23px;
+  color:var(--pen);line-height:1}
+.consent input:focus-visible{outline:3px solid var(--pink);outline-offset:2px}
+.consent a{color:var(--gel);text-decoration:underline}
+.fsubmit{grid-column:1/-1;display:flex;gap:12px;align-items:center;flex-wrap:wrap;margin-top:6px}
+.fsubmit .hint{font-family:"Caveat";font-weight:600;font-size:18px;color:#6a6a78}
+.sent{border:2.5px solid var(--ink);border-radius:10px;background:var(--acid);padding:24px 26px;
+  box-shadow:4px 5px 0 var(--ink);transform:rotate(-.4deg)}
+.sent h3{font-family:"Unbounded";font-weight:800;font-size:21px;margin:0 0 8px}
+
+@media(max-width:840px){
+  .who{grid-template-columns:1fr}
+  .steps{grid-template-columns:1fr}
+  .about{grid-template-columns:1fr}
+  .polaroid{max-width:260px;margin:0 auto}
+  .form{grid-template-columns:1fr}
+  .doc{grid-template-columns:1fr}
+  .tars{grid-template-columns:1fr}
+  .extras{grid-template-columns:1fr}
+  .sheet{padding:28px 20px 30px;transform:none!important}
+  .leaf{padding-left:44px}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<!-- HERO -->
+<section class="hero">
+  <span class="kick">✦ набор на [ГОД] открыт ✦</span>
+  <h1><span class="chrome">РУССКИЙ</span><span class="l2">сдают все.<br>Готовят <em>последним</em>.</span></h1>
+  <p class="sub">Авторский курс [ИМЯ]. <mark>94 занятия</mark>, из них 22 — только сочинение. Остальное вы уже проходили, просто пока не умеете этим пользоваться.</p>
+  <div class="btns">
+    <a class="btn p" href="#quiz">Пройти 5 заданий</a>
+    <a class="btn" href="#prog">Посмотреть программу</a>
+  </div>
+  <div class="nums">
+    <div><b>94</b><span>занятия</span></div>
+    <div><b>22</b><span>из них сочинение</span></div>
+    <div><b>8</b><span>макс. в группе</span></div>
+    <div><b>[N]</b><span>выпусков</span></div>
+  </div>
+</section>
+
+<!-- СТРУКТУРА -->
+<section class="sheet r1" id="exam" style="margin-top:40px">
+  <span class="tape tl"></span><span class="tape tr"></span>
+  <span class="star" style="top:-18px;right:150px;transform:rotate(12deg)">✦</span>
+  <span class="tag">где реально теряются баллы</span>
+  <h2 class="h2">Одно задание весит больше, чем восемь</h2>
+  <p class="lead">Сверху — сколько заданий в блоке. Снизу — сколько они стоят в баллах. Разница объясняет, почему курс устроен именно так.</p>
+
+  <div class="bar">
+    <div class="cap"><span>по количеству заданий</span><i>всего 27</i></div>
+    <div class="track">
+      <div class="seg" style="flex:8;background:var(--m1)">8<small>задания 1–8</small></div>
+      <div class="seg" style="flex:7;background:var(--m2);color:#fff">7<small>9–15</small></div>
+      <div class="seg" style="flex:6;background:var(--m3)">6<small>16–21</small></div>
+      <div class="seg" style="flex:5;background:var(--m4);color:#fff">5<small>22–26</small></div>
+      <div class="seg" style="flex:1;background:var(--m5);color:#fff">1<small>27</small></div>
+    </div>
+  </div>
+
+  <div class="bar" style="margin-top:38px">
+    <div class="cap"><span>по первичным баллам</span><i>пропорции · проверить</i></div>
+    <div class="track">
+      <div class="seg" style="flex:11;background:var(--m1)">11</div>
+      <div class="seg" style="flex:10;background:var(--m2);color:#fff">10</div>
+      <div class="seg" style="flex:9;background:var(--m3)">9</div>
+      <div class="seg" style="flex:8;background:var(--m4);color:#fff">8</div>
+      <div class="seg" style="flex:21;background:var(--m5);color:#fff">21<small>одно сочинение</small></div>
+    </div>
+  </div>
+
+  <div class="keys">
+    <span><i style="background:var(--m1)"></i>Лексика и нормы</span>
+    <span><i style="background:var(--m2)"></i>Орфография</span>
+    <span><i style="background:var(--m3)"></i>Пунктуация</span>
+    <span><i style="background:var(--m4)"></i>Текст</span>
+    <span><i style="background:var(--m5)"></i>Сочинение</span>
+  </div>
+
+  <div class="note"><b>Сочинение — одно задание из двадцати семи и примерно треть всех баллов.</b> Его нельзя выучить за неделю. Поэтому в курсе оно идёт с первого месяца параллельно с первой частью, а не блоком в мае, когда уже поздно.</div>
+</section>
+
+<!-- ТРЕНАЖЁР -->
+<section class="sheet r2 q" id="quiz">
+  <span class="tape tl"></span>
+  <div class="sticker circ" style="background:var(--pink);top:-34px;right:-14px;transform:rotate(11deg)">без<br>регистрации<br>и смс</div>
+  <span class="tag">проверь себя</span>
+  <h2 class="h2" style="max-width:20ch">Пять заданий, чтобы понять, где вы сейчас</h2>
+  <p class="lead">Контакты не нужны, результат не закрыт формой. После каждого ответа — объяснение правила. Ровно так разбираются задания на занятиях.</p>
+  <div id="quizBox"></div>
+</section>
+
+<!-- КОМУ ПОДХОДИТ -->
+<section class="sheet r1" id="who">
+  <span class="tape tr"></span>
+  <span class="star" style="top:-20px;left:120px;transform:rotate(-8deg);color:var(--aqua)">✦</span>
+  <span class="tag">честно про старт</span>
+  <h2 class="h2">С любого уровня, но по-разному</h2>
+  <p class="lead">Программа одна, темп и точка входа — разные. На диагностике решаем, куда вас ставить.</p>
+  <div class="who">
+    <div class="wcard">
+      <div class="wh" style="background:var(--m1)">С нуля</div>
+      <div class="wb"><span class="lvl" style="color:var(--gel)">до 55 баллов</span>
+      «Ничего не понимаю» — это нормальная отправная точка. Начинаем с орфографии, темп ниже, больше повторов. Сочинение подключается со второго месяца, а не сразу.</div>
+    </div>
+    <div class="wcard">
+      <div class="wh" style="background:var(--m3)">Нужен рывок</div>
+      <div class="wb"><span class="lvl" style="color:var(--gel)">60–75 баллов</span>
+      Первую часть вы в целом тянете, а теряете на пунктуации и сочинении. Самая частая история и самый заметный прирост: там же и лежат основные баллы.</div>
+    </div>
+    <div class="wcard">
+      <div class="wh" style="background:var(--m5);color:#fff">Шлифовка</div>
+      <div class="wb"><span class="lvl" style="color:var(--gel)">80+ баллов</span>
+      Базу трогать не будем. Разбираем спорные случаи, где даже справочники расходятся, и вытягиваем сочинение на максимум по каждому критерию.</div>
+    </div>
+  </div>
+  <div class="nope"><b>Кому не подойдёт.</b> Тем, кто рассчитывает не делать домашние задания. Без самостоятельной работы занятия превращаются в пересказ учебника, а это трата ваших денег и моего времени. Так тоже бывает, просто не ко мне.</div>
+</section>
+
+<!-- ПРОГРАММА -->
+<section class="sheet r1" id="prog">
+  <span class="tape tr"></span>
+  <span class="star" style="bottom:-16px;left:40px;transform:rotate(-16deg);color:var(--lilac)">✦</span>
+  <span class="tag">что и сколько</span>
+  <h2 class="h2">Программа курса</h2>
+  <p class="lead">Не «пройдём всё», а сколько занятий уходит на каждую тему. Нажмите на блок.</p>
+  <div id="mods"></div>
+</section>
+
+<!-- СОЧИНЕНИЕ -->
+<section class="sheet r2" id="doc">
+  <span class="tape tl"></span><span class="tape tr"></span>
+  <span class="tag">как возвращается работа</span>
+  <h2 class="h2">Сочинение с пометками на полях</h2>
+  <p class="lead">Не «плохо», а какое правило нарушено и что с этим делать. Нажмите на подчёркнутое слово или на номер ошибки.</p>
+  <div class="doc">
+    <div class="leaf" id="leaf"></div>
+    <div class="marg">
+      <span class="mtitle">на полях →</span>
+      <div id="mcard"></div>
+      <div class="dots" id="dots"></div>
+    </div>
+  </div>
+  <div class="note" style="background:var(--aqua);margin-top:30px">Это демонстрационный пример. На боевом лендинге здесь будет разворот настоящей проверенной работы с её почерком — это убеждает сильнее любого текста «о преподавателе».</div>
+</section>
+
+<!-- РЕЗУЛЬТАТЫ -->
+<section class="sheet r1" id="res">
+  <span class="tape tl"></span>
+  <span class="tag">выпуск [ГОД]</span>
+  <h2 class="h2">Было → стало, а не средний балл</h2>
+  <p class="lead">Двенадцать учеников. Наклон линии — это и есть работа за год.</p>
+  <div class="grid-paper"><svg class="slope" viewBox="0 0 900 360" role="img" aria-label="Изменение баллов учеников"></svg></div>
+  <div class="note" style="background:#fff;transform:rotate(.35deg)">Двое из двенадцати до цели не дотянули: один начал в марте, второй систематически не сдавал сочинения. Их линии нарисованы пунктиром и с графика не убраны.</div>
+</section>
+
+<!-- ТАРИФЫ -->
+<section class="sheet r2" id="price">
+  <span class="tape tr"></span>
+  <span class="tag">сколько это стоит</span>
+  <h2 class="h2">Три формата</h2>
+  <p class="lead">Цены — плейсхолдеры, заменить на реальные до публикации.</p>
+  <div class="tars" id="tars"></div>
+  <div class="extras">
+    <div class="ex" style="background:var(--acid)"><div><h4>Только сочинение</h4><p>6 занятий + 4 персональных разбора</p></div><b>12 000 ₽</b></div>
+    <div class="ex" style="background:var(--sun)"><div><h4>Диагностика</h4><p>40 минут и честный ответ, что вам нужно</p></div><b>1 500 ₽</b></div>
+  </div>
+  <div class="fine">Оплата по чеку самозанятого, договор высылается до первого занятия. Рассрочка на группу — помесячно без процентов. Отмена за 12 часов переносится бесплатно, позже списывается. Возврат за неиспользованные занятия в течение 10 дней. Реквизиты: [ФИО], ИНН [ИНН].</div>
+</section>
+
+<!-- ФИНАЛ -->
+<section class="final">
+  <span class="star" style="position:static;display:inline-block;margin-bottom:8px;color:var(--pink)">✦ ✦ ✦</span>
+  <h2>Начните с диагностики, а не с оплаты курса</h2>
+  <p>Сорок минут: входной срез, разбор слабых мест и честный ответ, подходит ли вам этот формат. И подходите ли вы ему.</p>
+  <div class="btns" style="justify-content:center">
+    <a class="btn p" href="#">Записаться</a>
+    <a class="btn a" href="#">Написать в телеграм</a>
+  </div>
+</section>
+
+</div>
+
+<script>
+const cv=k=>getComputedStyle(document.documentElement).getPropertyValue('--'+k).trim();
+
+const MODS=[
+ {k:'m1',n:'Лексика и нормы',r:'1–8',c:18,t:[['Ударение',2],['Паронимы',2],['Лексические нормы',3],['Морфологические нормы',4],['Синтаксические нормы',5],['Средства связи',2]]},
+ {k:'m2',n:'Орфография',r:'9–15',c:24,t:[['Корни с чередованием',3],['Приставки',3],['Суффиксы имён',4],['Суффиксы глаголов и причастий',4],['Н и НН',4],['НЕ и НИ',3],['Слитно, раздельно, дефис',3]]},
+ {k:'m3',n:'Пунктуация',r:'16–21',c:22,t:[['Однородные члены',3],['Обособленные определения',4],['Обособленные обстоятельства',3],['Вводные и обращения',3],['Сложноподчинённое',4],['Тире и двоеточие',3],['Пунктуационный анализ',2]]},
+ {k:'m4',n:'Текст',r:'22–26',c:8,t:[['Смысловой анализ',2],['Типы речи',2],['Средства связи предложений',2],['Языковые средства',2]]},
+ {k:'m5',n:'Сочинение',r:'27',c:22,t:[['Как найти проблему',3],['Комментарий и примеры',6],['Смысловая связь',4],['Позиция автора',2],['Своя позиция и обоснование',4],['Композиция и речь',3]]}
+];
+
+const QUIZ=[
+ {n:4,k:'m1',mod:'ударение',q:'В каком слове ударение поставлено неверно?',
+  o:['донЕльзя','дозИровать','дождАлась','дОверху'],a:2,
+  e:'Правильно — дождалАсь. В глаголах прошедшего времени женского рода ударение почти всегда уходит на окончание: началА, понялА, создалА. Исключений мало, проще выучить списком.'},
+ {n:5,k:'m1',mod:'паронимы',q:'В каком предложении пароним употреблён неверно?',
+  o:['Костюм произвёл эффективное впечатление.','Новый метод оказался очень эффективным.','Он выбрал эффектный ход.','Реклама была эффективной.'],a:0,
+  e:'Впечатление — эффектное, то есть яркое. Эффективный — дающий результат. Проверка: эффективный заменяется на «результативный», эффектный — на «броский».'},
+ {n:8,k:'m1',mod:'нормы',q:'Найдите предложение с грамматической ошибкой.',
+  o:['Благодаря отличной подготовки он сдал экзамен.','Согласно приказу занятия отменили.','Вопреки прогнозу погода наладилась.','По окончании школы он поступил в вуз.'],a:0,
+  e:'Благодаря, согласно, вопреки требуют дательного падежа: благодаря подготовкЕ. Одна из самых частых ошибок в задании 8 — и одна из самых дешёвых в исправлении.'},
+ {n:15,k:'m2',mod:'орфография',q:'В каком варианте пишется НН?',
+  o:['жаре__ый картофель','жаре__ый в масле картофель','ветре__ый день','кова__ый сундук'],a:1,
+  e:'Появилось зависимое слово — «в масле» — и причастие требует НН: жаренный в масле. Без зависимого слова это отглагольное прилагательное с одной Н.'},
+ {n:17,k:'m3',mod:'пунктуация',q:'В каком предложении запятые расставлены верно?',
+  o:['Испугавшийся грозы, мальчик спрятался.','Мальчик испугавшийся грозы спрятался.','Мальчик, испугавшийся грозы, спрятался.','Мальчик, испугавшийся грозы спрятался.'],a:2,
+  e:'Причастный оборот после определяемого слова обособляется с двух сторон. До определяемого слова запятых нет. Порядок решает всё.'}
+];
+
+/* тренажёр */
+const box=document.getElementById('quizBox');
+let step=-1,answers=[];
+const pips=()=>'<div class="pips">'+QUIZ.map((q,i)=>
+  `<div class="pip" style="${i<step?'background:'+cv(q.k):(i===step?'background:#c9c9d2':'')}"></div>`).join('')+'</div>';
+
+function render(){
+  if(step===-1){
+    box.innerHTML=`<button class="btn y" onclick="start()">✦ Начать разбор</button>
+      <p style="font-family:'Caveat';font-weight:600;font-size:19px;color:#5a5a68;margin:16px 0 0">три минуты, честно</p>`;
+    return;
+  }
+  if(step<QUIZ.length){
+    const q=QUIZ[step],g=answers[step];
+    const opts=q.o.map((t,i)=>{
+      let c='opt',m='';
+      if(g!==undefined){
+        if(i===q.a){c+=' ok';m='✓'}
+        else if(i===g){c+=' bad';m='✗'}
+      }
+      return `<button class="${c}" ${g!==undefined?'disabled':''} onclick="pick(${i})">
+        <span class="bxx">${m}</span><span class="t">${t}</span></button>`;
+    }).join('');
+    const right=g===q.a;
+    box.innerHTML=pips()+`
+      <span class="qmod" style="background:${cv(q.k)};${q.k==='m2'||q.k==='m4'||q.k==='m5'?'color:#fff':''}">${q.mod}</span>
+      <span class="qnum">задание № ${q.n}</span>
+      <h3>${q.q}</h3>${opts}
+      ${g!==undefined?`<div class="verd">
+        <div class="vt" style="background:${right?'#1a8f2e':cv('pen')}">${right?'Верно':'Разбираем'}</div>
+        <div class="vb"><span class="pen">${right?'так держать':'смотри сюда'}</span>${q.e}</div>
+      </div>
+      <div class="qnav"><button class="btn a" onclick="next()">${step===QUIZ.length-1?'Показать разбор':'Дальше'}</button></div>`:''}`;
+    return;
+  }
+  const agg={};
+  QUIZ.forEach((q,i)=>{agg[q.k]=agg[q.k]||{n:0,ok:0,name:MODS.find(m=>m.k===q.k).n};
+    agg[q.k].n++;if(answers[i]===q.a)agg[q.k].ok++});
+  const total=answers.filter((v,i)=>v===QUIZ[i].a).length;
+  const weak=Object.entries(agg).filter(([,v])=>v.ok<v.n).sort((a,b)=>a[1].ok/a[1].n-b[1].ok/b[1].n)[0];
+  box.innerHTML=pips()+`
+    <h3 style="font-family:'Unbounded';font-weight:900;font-size:clamp(26px,5vw,42px);margin:0 0 2px">${total} из 5</h3>
+    <p style="font-family:'Caveat';font-weight:600;font-size:20px;color:#5a5a68;margin:0 0 20px">балл тут не главное — важно, где просело</p>
+    ${Object.entries(agg).map(([k,v])=>`<div class="rrow">
+      <div class="nm">${v.name}</div>
+      <div class="tr"><div class="fl" style="width:${v.ok/v.n*100}%;background:${cv(k)}"></div></div>
+      <div class="vl">${v.ok}/${v.n}</div></div>`).join('')}
+    <div class="verd" style="margin-top:20px">
+      <div class="vt" style="background:${weak?cv(weak[0]):'#1a8f2e'};${weak&&(weak[0]==='m1'||weak[0]==='m3')?'color:#1a1a22':''}">${weak?'с чего начать':'итог'}</div>
+      <div class="vb">${weak?`Слабое место — «${weak[1].name}». В курсе это ${MODS.find(m=>m.k===weak[0]).c} занятий, начинать имеет смысл с них.`
+        :'Все пять взяты. Обычно это значит, что работать надо не над первой частью, а над сочинением — там треть баллов.'}</div>
+    </div>
+    <div class="qnav">
+      <a class="btn p" href="#price">Разобрать на диагностике</a>
+      <button class="btn" onclick="reset()">Заново</button>
+    </div>`;
+}
+function start(){step=0;render()}
+function pick(i){answers[step]=i;render()}
+function next(){step++;render()}
+function reset(){step=-1;answers=[];render()}
+render();
+
+/* программа */
+document.getElementById('mods').innerHTML=MODS.map(m=>`
+ <details class="mod">
+   <summary>
+     <span class="chip" style="background:${cv(m.k)};${m.k==='m2'||m.k==='m4'||m.k==='m5'?'color:#fff':''}">${m.r}</span>
+     <span class="fn">${m.n}</span>
+     <span class="fc">${m.c} занятий</span>
+     <span class="pl">+</span>
+   </summary>
+   <div class="kids">${m.t.map(([t,c])=>`<div>${t}<span>${c}</span></div>`).join('')}</div>
+ </details>`).join('');
+
+/* сочинение */
+const ERR=[
+ {w:'о том',r:'того',rule:'Управление',why:'Проблема ЧЕГО, а не О ЧЁМ. Существительное «проблема» требует родительного падежа.'},
+ {w:'считает что',r:'считает, что',rule:'Запятая в СПП',why:'Придаточное изъяснительное отделяется запятой. Перед союзом «что» запятая нужна.'},
+ {w:'актуальная',r:'актуальна',rule:'Краткая форма',why:'В роли сказуемого при подлежащем «проблема» нужна краткая форма прилагательного.'},
+ {w:'потому-что',r:'потому что',rule:'Составной союз',why:'«Потому что» пишется в два слова. Дефис здесь — грубая ошибка.'},
+ {w:'природа это',r:'природа — это',rule:'Тире',why:'Между подлежащим и сказуемым-существительным перед «это» ставится тире.'}
+];
+let cur=0;
+function drawDoc(){
+  document.getElementById('leaf').innerHTML=
+    `В тексте поднимается проблема <span class="err e0">о том</span>, как человек относится к природе. Автор <span class="err e1">считает что</span> природа нуждается в защите. Эта проблема очень <span class="err e2">актуальная</span> в наше время. Я согласен с автором, <span class="err e3">потому-что</span> <span class="err e4">природа это</span> наш дом.`;
+  ERR.forEach((e,i)=>{
+    const n=document.querySelector('.e'+i);
+    if(!n)return;
+    if(i===cur)n.classList.add('on');
+    n.onclick=()=>{cur=i;drawDoc()};
+  });
+  document.getElementById('mcard').innerHTML=`<div class="mcard">
+    <div class="rule" style="color:${cv('pen')}">${ERR[cur].rule}</div>
+    <span class="was">${ERR[cur].w}</span>
+    <span class="now">${ERR[cur].r}</span>
+    <div class="why">${ERR[cur].why}</div>
+  </div>`;
+  document.getElementById('dots').innerHTML=ERR.map((e,i)=>
+    `<b class="${i===cur?'on':''}" onclick="cur=${i};drawDoc()">${i+1}</b>`).join('');
+}
+drawDoc();
+
+/* слоуп-чарт гелевой ручкой */
+(function(){
+  const data=[[58,84],[71,89],[44,67],[63,81],[79,94],[52,70],[66,77],[74,85],[61,79],[48,72],[69,66],[55,58]];
+  const svg=document.querySelector('.slope');
+  const W=900,H=360,PL=86,PR=86,PT=40,PB=28;
+  const y=v=>PT+(100-v)/60*(H-PT-PB);
+  const cols=[cv('m1'),cv('m2'),cv('m3'),cv('m4'),cv('m5')];
+  let s='';
+  [40,60,80,100].forEach(v=>{s+=`<text x="${PL-14}" y="${y(v)+5}" fill="#6a6a78" text-anchor="end">${v}</text>
+    <text x="${W-PR+14}" y="${y(v)+5}" fill="#6a6a78">${v}</text>`});
+  s+=`<line x1="${PL}" y1="${PT}" x2="${PL}" y2="${H-PB}" stroke="#1a1a22" stroke-width="2.5"/>
+      <line x1="${W-PR}" y1="${PT}" x2="${W-PR}" y2="${H-PB}" stroke="#1a1a22" stroke-width="2.5"/>
+      <text x="${PL}" y="${PT-16}" fill="${cv('pen')}" text-anchor="middle" font-size="18">входной балл</text>
+      <text x="${W-PR}" y="${PT-16}" fill="${cv('pen')}" text-anchor="middle" font-size="18">результат ЕГЭ</text>`;
+  data.forEach((d,i)=>{
+    const down=d[1]<=d[0],col=down?'#9a9aa6':cols[i%5];
+    s+=`<line x1="${PL}" y1="${y(d[0])}" x2="${W-PR}" y2="${y(d[1])}" stroke="${col}"
+          stroke-width="${down?2:3.4}" stroke-linecap="round" ${down?'stroke-dasharray="7 6"':''}/>
+        <circle cx="${PL}" cy="${y(d[0])}" r="5" fill="#fff" stroke="${col}" stroke-width="2.5"/>
+        <circle cx="${W-PR}" cy="${y(d[1])}" r="6" fill="${col}" stroke="#1a1a22" stroke-width="1.5"/>`;
+  });
+  svg.innerHTML=s;
+})();
+
+/* тарифы */
+const TARS=[
+ {k:'m2',n:'Сам',p:'12 900 ₽',u:'за весь курс, доступ до экзамена',best:0,
+  f:[['Все материалы курса',1],['Домашние с ключами',1],['Занятия',0],['Проверка сочинений',0],['Личный план',0]]},
+ {k:'m3',n:'Группа',p:'6 900 ₽',u:'в месяц · 59 000 ₽ за год',best:1,
+  f:[['Все материалы курса',1],['2 занятия в неделю, до 8 человек',1],['2 сочинения в месяц',1],['Записи занятий',1],['Личный план',0]]},
+ {k:'m5',n:'Один на один',p:'3 800 ₽',u:'за занятие · пакет из 8 — 28 000 ₽',best:0,
+  f:[['Все материалы курса',1],['Занятия по вашему расписанию',1],['Проверка всех сочинений',1],['Личный план подготовки',1],['Связь между занятиями',1]]}
+];
+let selT=1;
+function drawT(){
+  document.getElementById('tars').innerHTML=TARS.map((t,i)=>`
+    <div class="tar ${i===selT?'sel':''}" onclick="selT=${i};drawT()">
+      ${t.best?'<span class="best">берут чаще</span>':''}
+      <div class="th" style="background:${cv(t.k)};${t.k==='m2'||t.k==='m5'?'color:#fff':''}">${t.n}</div>
+      <div class="tp">${t.p}</div>
+      <div class="tu">${t.u}</div>
+      <ul>${t.f.map(([x,v])=>`<li class="${v?'':'no'}">${x}</li>`).join('')}</ul>
+      <div style="padding:6px 16px 0"><span class="btn ${i===selT?'p':''}" style="width:100%;text-align:center;font-size:13px;padding:11px 8px">Выбрать</span></div>
+    </div>`).join('');
+}
+drawT();
+</script>
+</body>
+</html>

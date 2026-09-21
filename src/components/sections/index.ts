@@ -1,0 +1,12 @@
+export { Hero } from "./hero";
+export { Exam } from "./exam";
+export { Quiz } from "./quiz";
+export { Program } from "./program";
+export { Essay } from "./essay";
+export { Results } from "./results";
+export { Pricing } from "./pricing";
+export { Final } from "./final";
+export { Lead } from "./lead";
+export { Footer } from "./footer";
+export { LegalStub } from "./legal-stub";
+export { Faq } from "./faq";
