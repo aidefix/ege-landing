@@ -66,7 +66,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       className={`${unbounded.variable} ${caveat.variable} ${golos.variable}`}
     >
       <body className="font-sans">
-        <div className="relative z-1 mx-auto max-w-[1020px] px-[18px]">
+        <div className="relative z-1 mx-auto max-w-[1200px] px-[18px]">
           {children}
           <Footer />
         </div>

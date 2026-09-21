@@ -18,7 +18,7 @@ function Bar({ bar, className }: { bar: ExamBar; className?: string }) {
             key={segment.key}
             style={{ flex: segment.value }}
             className={cn(
-              "relative grid place-items-center rounded-card border-[2.5px] border-ink",
+              "relative grid min-w-[38px] place-items-center rounded-card border-[2.5px] border-ink",
               "font-display text-[17px] font-extrabold shadow-hard-sm",
               moduleFill(segment.key),
             )}
